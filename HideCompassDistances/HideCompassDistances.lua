@@ -4,8 +4,8 @@
 --[[
     AddOn Name:         HideCompassDistances
     Description:        Hides compass distance indicators in the game interface
-    Version:            1.0.0
-    Author:             |cEBD03CVollständigerName|r
+    Version:            1.0.1
+    Author:             VollständigerName
     Dependencies:       None
 --]]
 -- =============================================================================
@@ -30,13 +30,13 @@
 --]]
 
 HideCompassDistances = {
-    -- Internal namespace identifier (must match folder name)
+    -- Internal namespace identifier 
     name = "HideCompassDistances",
     
     -- Semantic version (Major=Breaking, Minor=Features, Patch=Fixes)
-    version = "1.0.0",
+    version = "1.0.1",
     
-    -- Settings configuration (overridden by SavedVariables)
+    -- Settings configuration 
     settings = {
         hideDistances = true  -- Default: distances hidden
     },
@@ -106,12 +106,12 @@ end
 function HCD.UpdateDistances()
     if HCD.settings.hideDistances then
         -- Hide distance strings
-        EsoStrings[11803] = ""  -- Short distances (meters)
-        EsoStrings[11804] = ""  -- Long distances (kilometers)
+        EsoStrings[SI_COMPASS_PIN_DISTANCE_FORMATTER] = ""  -- Short distances
+        EsoStrings[SI_COMPASS_PIN_LONG_DISTANCE_FORMATTER] = ""  -- Long distances 
     else
         -- Restore original strings
-        EsoStrings[11803] = HCD.originalStrings[11803] or ""
-        EsoStrings[11804] = HCD.originalStrings[11804] or ""
+        EsoStrings[SI_COMPASS_PIN_DISTANCE_FORMATTER] = HCD.originalStrings[SI_COMPASS_PIN_DISTANCE_FORMATTER] or ""
+        EsoStrings[SI_COMPASS_PIN_LONG_DISTANCE_FORMATTER] = HCD.originalStrings[SI_COMPASS_PIN_LONG_DISTANCE_FORMATTER] or ""
     end
     
     -- Persist settings for future sessions
@@ -135,8 +135,8 @@ end
 
 function HCD.Initialize()
     -- Backup original strings
-    HCD.originalStrings[11803] = EsoStrings[11803]
-    HCD.originalStrings[11804] = EsoStrings[11804]
+    HCD.originalStrings[SI_COMPASS_PIN_DISTANCE_FORMATTER] = EsoStrings[SI_COMPASS_PIN_DISTANCE_FORMATTER]
+    HCD.originalStrings[SI_COMPASS_PIN_LONG_DISTANCE_FORMATTER] = EsoStrings[SI_COMPASS_PIN_LONG_DISTANCE_FORMATTER]
     
     -- Load saved settings if available
     if HCDSV then
