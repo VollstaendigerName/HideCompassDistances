@@ -1,8 +1,8 @@
 ## Title: HideCompassDistances
-## APIVersion: 100035  (oder deine ESO-API-Version)
+## APIVersion: 101047
 ## Author: |cEBD03CVollständigerName|r
-## Version: 1.0
-## SavedVariables: HideCompassDistances_Settings
+## Version: 1.0.1
+## SavedVariables: HideCompassDistancesSV
 ## OptionalDependsOn: 
 ## Description: Hides compass distances
 
